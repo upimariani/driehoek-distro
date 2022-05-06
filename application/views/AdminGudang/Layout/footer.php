@@ -27,6 +27,21 @@
 <script src="<?= base_url('asset/AdminLTE/') ?>dist/js/adminlte.min.js"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="<?= base_url('asset/AdminLTE/') ?>dist/js/demo.js"></script>
+<!-- Summernote -->
+<script src="<?= base_url('asset/AdminLTE/') ?>plugins/summernote/summernote-bs4.min.js"></script>
+<script>
+    $(function() {
+        // Summernote
+        $('.textarea').summernote()
+    })
+</script>
+<script>
+    window.setTimeout(function() {
+        $(".callout").fadeTo(500, 0).slideUp(500, function() {
+            $(this).remove();
+        });
+    }, 3000)
+</script>
 <!-- page script -->
 <script>
     $(function() {

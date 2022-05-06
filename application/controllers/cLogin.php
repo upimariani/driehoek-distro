@@ -30,7 +30,7 @@ class cLogin extends CI_Controller
                 if ($level == '1') {
                     redirect('Pemilik/cLaporan');
                 } else if ($level == '2') {
-                    redirect('cKelolaProduk');
+                    redirect('Admin/cKelolaProduk');
                 } else if ($level == '3') {
                     redirect('Sales/cKatalog');
                 }
@@ -39,6 +39,13 @@ class cLogin extends CI_Controller
                 redirect('cLogin');
             }
         }
+    }
+    public function logout()
+    {
+        $this->session->unset_userdata('id');
+        $this->session->unset_userdata('level');
+        $this->session->set_flashdata('success', 'Anda Berhasil Logout!');
+        redirect('cLogin');
     }
 }
 

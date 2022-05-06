@@ -5,13 +5,13 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1>User Driehoek Distro</h1>
-                    <a href="<?= base_url('Pemilik/cUser/create') ?>">Create New User Akun</a>
+                    <h1>Produk</h1>
+                    <a href="<?= base_url('Admin/cKelolaProduk/create') ?>">Create New Produk</a>
                 </div>
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
                         <li class="breadcrumb-item"><a href="#">Home</a></li>
-                        <li class="breadcrumb-item active">User</li>
+                        <li class="breadcrumb-item active">Produk</li>
                     </ol>
                 </div>
             </div>
@@ -26,7 +26,6 @@
             <?php
             }
             ?>
-
         </div><!-- /.container-fluid -->
     </section>
 
@@ -37,7 +36,7 @@
                 <div class="col-12">
                     <div class="card">
                         <div class="card-header">
-                            <h3 class="card-title">Informasi User Akun Driehoek Distro</h3>
+                            <h3 class="card-title">Informasi Produk</h3>
                         </div>
                         <!-- /.card-header -->
                         <div class="card-body">
@@ -45,43 +44,27 @@
                                 <thead>
                                     <tr>
                                         <th class="text-center">No.</th>
-                                        <th class="text-center">Nama User</th>
-                                        <th class="text-center">Alamat</th>
-                                        <th class="text-center">No Telepon</th>
-                                        <th class="text-center">Username</th>
-                                        <th class="text-center">Password</th>
-                                        <th class="text-center">Level User</th>
+                                        <th class="text-center">Gambar</th>
+                                        <th class="text-center">Produk</th>
+                                        <th class="text-center">Deskripsi</th>
                                         <th class="text-center">Action</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <?php
                                     $no = 1;
-                                    foreach ($user as $key => $value) {
+                                    foreach ($produk as $key => $value) {
                                     ?>
                                         <tr>
-                                            <td class="text-center"><?= $no++ ?></td>
-                                            <td><?= $value->nama_user ?></td>
-                                            <td><?= $value->alamat ?></td>
-                                            <td><?= $value->no_hp ?></td>
-                                            <td><?= $value->username ?></td>
-                                            <td><?= $value->password ?></td>
-                                            <td class="text-center">
-                                                <?php
-                                                if ($value->level_user == '1') {
-                                                    echo '<span class="badge badge-warning">Pemilik</span>';
-                                                } else if ($value->level_user == '2') {
-                                                    echo '<span class="badge badge-success">Admin Gudang</span>';
-                                                } else if ($value->level_user == '3') {
-                                                    echo '<span class="badge badge-info">Sales</span>';
-                                                }
-                                                ?>
-                                            </td>
-                                            <td class="text-center">
-                                                <a href="<?= base_url('Pemilik/cUser/edit/' . $value->id_user) ?>" class="btn btn-app">
+                                            <td class="text-center"><?= $no++ ?>.</td>
+                                            <td class="text-center"><img style="width: 100px;" src="<?= base_url('asset/foto-produk/' . $value->gambar) ?>"></td>
+                                            <td>Nama Produk:<strong> <?= $value->nama_produk ?></strong><br>
+                                                Kategori: <?= $value->nama_kategori ?></td>
+                                            <td><?= $value->deskripsi ?></td>
+                                            <td class="text-center"><a href="<?= base_url('Admin/cKelolaProduk/edit/' . $value->id_produk) ?>" class="btn btn-app">
                                                     <i class="fas fa-edit"></i> Edit
                                                 </a>
-                                                <a href="<?= base_url('Pemilik/cUser/delete/' . $value->id_user) ?>" class="btn btn-app">
+                                                <a href="<?= base_url('Admin/cKelolaProduk/delete/' . $value->id_produk) ?>" class="btn btn-app">
                                                     <i class="fas fa-trash"></i> Hapus
                                                 </a>
                                             </td>
@@ -93,12 +76,9 @@
                                 <tfoot>
                                     <tr>
                                         <th class="text-center">No.</th>
-                                        <th class="text-center">Nama User</th>
-                                        <th class="text-center">Alamat</th>
-                                        <th class="text-center">No Telepon</th>
-                                        <th class="text-center">Username</th>
-                                        <th class="text-center">Password</th>
-                                        <th class="text-center">Level User</th>
+                                        <th class="text-center">Gambar</th>
+                                        <th class="text-center">Produk</th>
+                                        <th class="text-center">Deskripsi</th>
                                         <th class="text-center">Action</th>
                                     </tr>
                                 </tfoot>

@@ -126,20 +126,18 @@
         <!-- Main Sidebar Container -->
         <aside class="main-sidebar sidebar-dark-primary elevation-4">
             <!-- Brand Logo -->
-            <a href="../../index3.html" class="brand-link">
-                <img src="../../dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
-                <span class="brand-text font-weight-light">AdminLTE 3</span>
+            <a href="#" class="brand-link">
+                <img src="<?= base_url('asset/AdminLTE/') ?>dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
+
+                <span class="brand-text font-weight-light">ADMIN</span>
             </a>
 
             <!-- Sidebar -->
             <div class="sidebar">
                 <!-- Sidebar user (optional) -->
                 <div class="user-panel mt-3 pb-3 mb-3 d-flex">
-                    <div class="image">
-                        <img src="../../dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
-                    </div>
                     <div class="info">
-                        <a href="#" class="d-block">Alexander Pierce</a>
+                        <a href="#" class="d-block">DRIEHOEK DISTRO</a>
                     </div>
                 </div>
 
@@ -149,32 +147,39 @@
                         <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
                         <li class="nav-item">
-                            <a href="../widgets.html" class="nav-link">
-                                <i class="nav-icon fas fa-th"></i>
-                                <p>
-                                    Kelola Data Kategori
-                                </p>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="../widgets.html" class="nav-link">
-                                <i class="nav-icon fas fa-th"></i>
+                            <a href="<?= base_url('Admin/cKelolaProduk') ?>" class="nav-link <?php if ($this->uri->segment(1) == 'Admin' && $this->uri->segment(2) == 'cKelolaProduk') {
+                                                                                                    echo 'active';
+                                                                                                }  ?>">
+                                <i class="nav-icon fas fa-box"></i>
                                 <p>
                                     Kelola Data Produk
                                 </p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="../widgets.html" class="nav-link">
-                                <i class="nav-icon fas fa-th"></i>
+                            <a href="<?= base_url('Admin/cKelolaKategori') ?>" class="nav-link <?php if ($this->uri->segment(1) == 'Admin' && $this->uri->segment(2) == 'cKelolaKategori') {
+                                                                                                    echo 'active';
+                                                                                                }  ?>">
+                                <i class="nav-icon fas fa-bars"></i>
+                                <p>
+                                    Kelola Data Kategori
+                                </p>
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a href="<?= base_url('Admin/cProdukMasuk') ?>" class="nav-link <?php if ($this->uri->segment(1) == 'Admin' && $this->uri->segment(2) == 'cProdukMasuk') {
+                                                                                                echo 'active';
+                                                                                            }  ?>">
+                                <i class="nav-icon fas fa-cart-arrow-down"></i>
                                 <p>
                                     Produk Masuk
                                 </p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="../widgets.html" class="nav-link">
-                                <i class="nav-icon fas fa-th"></i>
+                            <a href="<?= base_url('cLogin/logout') ?>" class="nav-link">
+                                <i class="nav-icon fas fa-sign-out-alt"></i>
                                 <p>
                                     Logout
                                 </p>
