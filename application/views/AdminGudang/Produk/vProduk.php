@@ -67,6 +67,9 @@
                                                 <a href="<?= base_url('Admin/cKelolaProduk/delete/' . $value->id_produk) ?>" class="btn btn-app">
                                                     <i class="fas fa-trash"></i> Hapus
                                                 </a>
+                                                <a href="<?= base_url('Admin/cKelolaProduk/size/' . $value->id_produk) ?>" class="btn btn-app">
+                                                    <i class="fas fa-ruler-combined"></i> Size
+                                                </a>
                                             </td>
                                         </tr>
                                     <?php

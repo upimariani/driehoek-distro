@@ -32,6 +32,21 @@ class mProduk extends CI_Model
         $this->db->where('id_produk', $id);
         $this->db->delete('produk');
     }
+
+
+    //kelola size produk
+    public function size_select($id)
+    {
+        $this->db->select('*');
+        $this->db->from('size');
+        $this->db->join('produk', 'size.id_produk = produk.id_produk', 'left');
+        $this->db->where('produk.id_produk', $id);
+        return $this->db->get()->result();
+    }
+    public function insert_size($data)
+    {
+        $this->db->insert('size', $data);
+    }
 }
 
 /* End of file mProduk.php */
