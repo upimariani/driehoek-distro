@@ -44,7 +44,6 @@
                                 <thead>
                                     <tr>
                                         <th class="text-center">No.</th>
-                                        <th class="text-center">Gambar</th>
                                         <th class="text-center">Produk</th>
                                         <th class="text-center">Deskripsi</th>
                                         <th class="text-center">Action</th>
@@ -57,17 +56,16 @@
                                     ?>
                                         <tr>
                                             <td class="text-center"><?= $no++ ?>.</td>
-                                            <td class="text-center"><img style="width: 100px;" src="<?= base_url('asset/foto-produk/' . $value->gambar) ?>"></td>
-                                            <td>Nama Produk:<strong> <?= $value->nama_produk ?></strong><br>
+                                            <td><img style="width: 100px;" src="<?= base_url('asset/foto-produk/' . $value->gambar) ?>"><br>Nama Produk:<strong> <?= $value->nama_produk ?></strong><br>
                                                 Kategori: <?= $value->nama_kategori ?></td>
                                             <td><?= $value->deskripsi ?></td>
-                                            <td class="text-center"><a href="<?= base_url('Admin/cKelolaProduk/edit/' . $value->id_produk) ?>" class="btn btn-app">
+                                            <td class="text-center"><a href="<?= base_url('Admin/cKelolaProduk/edit/' . $value->id_produk) ?>" class="btn btn-app btn-sm">
                                                     <i class="fas fa-edit"></i> Edit
                                                 </a>
-                                                <a href="<?= base_url('Admin/cKelolaProduk/delete/' . $value->id_produk) ?>" class="btn btn-app">
+                                                <a href="<?= base_url('Admin/cKelolaProduk/delete/' . $value->id_produk) ?>" class="btn btn-app btn-sm">
                                                     <i class="fas fa-trash"></i> Hapus
                                                 </a>
-                                                <a href="<?= base_url('Admin/cKelolaProduk/size/' . $value->id_produk) ?>" class="btn btn-app">
+                                                <a href="<?= base_url('Admin/cKelolaProduk/size/' . $value->id_produk) ?>" class="btn btn-app btn-sm">
                                                     <i class="fas fa-ruler-combined"></i> Size
                                                 </a>
                                             </td>
@@ -79,7 +77,6 @@
                                 <tfoot>
                                     <tr>
                                         <th class="text-center">No.</th>
-                                        <th class="text-center">Gambar</th>
                                         <th class="text-center">Produk</th>
                                         <th class="text-center">Deskripsi</th>
                                         <th class="text-center">Action</th>

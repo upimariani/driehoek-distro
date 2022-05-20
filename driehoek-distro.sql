@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 06, 2022 at 02:17 AM
--- Server version: 10.4.6-MariaDB
--- PHP Version: 7.3.9
+-- Waktu pembuatan: 21 Bulan Mei 2022 pada 01.02
+-- Versi server: 10.4.6-MariaDB
+-- Versi PHP: 7.3.9
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -25,7 +25,7 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `detail_order`
+-- Struktur dari tabel `detail_order`
 --
 
 CREATE TABLE `detail_order` (
@@ -35,10 +35,19 @@ CREATE TABLE `detail_order` (
   `qty` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data untuk tabel `detail_order`
+--
+
+INSERT INTO `detail_order` (`id_detail`, `id_size`, `id_order`, `qty`) VALUES
+(1, 2, '20220520KD3BERBE', 3),
+(2, 5, '20220520KD3BERBE', 1),
+(3, 3, '20220520OYHKVAE1', 5);
+
 -- --------------------------------------------------------
 
 --
--- Table structure for table `kategori`
+-- Struktur dari tabel `kategori`
 --
 
 CREATE TABLE `kategori` (
@@ -46,10 +55,19 @@ CREATE TABLE `kategori` (
   `nama_kategori` varchar(125) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data untuk tabel `kategori`
+--
+
+INSERT INTO `kategori` (`id_kategori`, `nama_kategori`) VALUES
+(3, 'Kemeja'),
+(4, 'Celana Jeans'),
+(5, 'Street');
+
 -- --------------------------------------------------------
 
 --
--- Table structure for table `order`
+-- Struktur dari tabel `order`
 --
 
 CREATE TABLE `order` (
@@ -63,10 +81,18 @@ CREATE TABLE `order` (
   `total_bayar` varchar(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data untuk tabel `order`
+--
+
+INSERT INTO `order` (`id_order`, `id_user`, `tgl_order`, `time`, `atas_nama`, `alamat`, `no_hp`, `total_bayar`) VALUES
+('20220520KD3BERBE', 3, '2022-05-20', '2022-05-20 13:29:34', 'upi', 'Kuningan', '0875698745633', '10732'),
+('20220520OYHKVAE1', 3, '2022-05-20', '2022-05-20 13:37:23', 'dahlia', 'Ciawigebang, Kuningan', '085156727368', '50000');
+
 -- --------------------------------------------------------
 
 --
--- Table structure for table `produk`
+-- Struktur dari tabel `produk`
 --
 
 CREATE TABLE `produk` (
@@ -77,23 +103,32 @@ CREATE TABLE `produk` (
   `gambar` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data untuk tabel `produk`
+--
+
+INSERT INTO `produk` (`id_produk`, `id_kategori`, `nama_produk`, `deskripsi`, `gambar`) VALUES
+(1, 5, 'Street Orange Demon', '<p>Terbuat dari bahan <b>cotton 100%</b> pilihan, terjamin kualitas no.01</p>', 'Gambar_Mockup_Kaos_Oranye,_Kaos_Clipart,_Kaos,_Pria_PNG_Transparan_Clipart_dan_File_PSD_untuk_Unduh_Gratis.jpg'),
+(3, 5, 'Street Black Pink White', '<p>Bahan terbuat dari <b>100% cotton</b> pilihan</p>', '50698faf-b96e-4d76-a585-b1ce3ebd901c.jpg'),
+(4, 5, 'Street Pich', '<p>Cotton 100%</p>', 'Official_Webshop.png');
+
 -- --------------------------------------------------------
 
 --
--- Table structure for table `produk_masuk`
+-- Struktur dari tabel `produk_masuk`
 --
 
 CREATE TABLE `produk_masuk` (
   `id_produk_masuk` int(11) NOT NULL,
   `id_size` int(11) NOT NULL,
   `tgl_masuk` varchar(15) NOT NULL,
-  `stok` int(11) NOT NULL
+  `qty_masuk` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `size`
+-- Struktur dari tabel `size`
 --
 
 CREATE TABLE `size` (
@@ -104,10 +139,22 @@ CREATE TABLE `size` (
   `stok` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data untuk tabel `size`
+--
+
+INSERT INTO `size` (`id_size`, `id_produk`, `nama_size`, `harga`, `stok`) VALUES
+(1, 1, 'coba', '12345', 232),
+(2, 1, 'zds', '244', 1231),
+(3, 3, 'L', '10000', 100),
+(4, 3, 'S', '17000', 91),
+(5, 4, 'S', '10000', 91),
+(6, 4, 'XL', '17000', 91);
+
 -- --------------------------------------------------------
 
 --
--- Table structure for table `user`
+-- Struktur dari tabel `user`
 --
 
 CREATE TABLE `user` (
@@ -121,97 +168,96 @@ CREATE TABLE `user` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `user`
+-- Dumping data untuk tabel `user`
 --
 
 INSERT INTO `user` (`id_user`, `nama_user`, `alamat`, `no_hp`, `username`, `password`, `level_user`) VALUES
 (1, 'pemilik', 'Kuningan, Jawa Barat', '0897654345676', 'pemilik', 'pemilik', 1),
 (2, 'admin', 'Ciawigebang, Jawa Barat', '0898765434567', 'admin', 'admin', 2),
-(3, 'sales1', 'Cigugur, Kuningan', '087652615263', 'sales1', 'sales1', 3),
-(4, 'coba', 'sdsa', '123456543212', 'admin', 'rizki', 2);
+(3, 'sales1', 'Cigugur, Kuningan', '087652615263', 'sales1', 'sales1', 3);
 
 --
 -- Indexes for dumped tables
 --
 
 --
--- Indexes for table `detail_order`
+-- Indeks untuk tabel `detail_order`
 --
 ALTER TABLE `detail_order`
   ADD PRIMARY KEY (`id_detail`);
 
 --
--- Indexes for table `kategori`
+-- Indeks untuk tabel `kategori`
 --
 ALTER TABLE `kategori`
   ADD PRIMARY KEY (`id_kategori`);
 
 --
--- Indexes for table `order`
+-- Indeks untuk tabel `order`
 --
 ALTER TABLE `order`
   ADD PRIMARY KEY (`id_order`);
 
 --
--- Indexes for table `produk`
+-- Indeks untuk tabel `produk`
 --
 ALTER TABLE `produk`
   ADD PRIMARY KEY (`id_produk`);
 
 --
--- Indexes for table `produk_masuk`
+-- Indeks untuk tabel `produk_masuk`
 --
 ALTER TABLE `produk_masuk`
   ADD PRIMARY KEY (`id_produk_masuk`);
 
 --
--- Indexes for table `size`
+-- Indeks untuk tabel `size`
 --
 ALTER TABLE `size`
   ADD PRIMARY KEY (`id_size`);
 
 --
--- Indexes for table `user`
+-- Indeks untuk tabel `user`
 --
 ALTER TABLE `user`
   ADD PRIMARY KEY (`id_user`);
 
 --
--- AUTO_INCREMENT for dumped tables
+-- AUTO_INCREMENT untuk tabel yang dibuang
 --
 
 --
--- AUTO_INCREMENT for table `detail_order`
+-- AUTO_INCREMENT untuk tabel `detail_order`
 --
 ALTER TABLE `detail_order`
-  MODIFY `id_detail` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_detail` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
--- AUTO_INCREMENT for table `kategori`
+-- AUTO_INCREMENT untuk tabel `kategori`
 --
 ALTER TABLE `kategori`
-  MODIFY `id_kategori` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_kategori` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
--- AUTO_INCREMENT for table `produk`
+-- AUTO_INCREMENT untuk tabel `produk`
 --
 ALTER TABLE `produk`
-  MODIFY `id_produk` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_produk` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
--- AUTO_INCREMENT for table `produk_masuk`
+-- AUTO_INCREMENT untuk tabel `produk_masuk`
 --
 ALTER TABLE `produk_masuk`
   MODIFY `id_produk_masuk` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `size`
+-- AUTO_INCREMENT untuk tabel `size`
 --
 ALTER TABLE `size`
-  MODIFY `id_size` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_size` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
--- AUTO_INCREMENT for table `user`
+-- AUTO_INCREMENT untuk tabel `user`
 --
 ALTER TABLE `user`
   MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
