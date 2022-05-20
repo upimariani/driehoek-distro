@@ -6,6 +6,10 @@ class cTransaksi extends CI_Controller
 
     public function index()
     {
+        $this->load->view('Sales/Layout/head');
+        $this->load->view('Sales/Layout/sidebar');
+        $this->load->view('Sales/transaksi/transaksi');
+        $this->load->view('Sales/Layout/footer');
     }
 }
 

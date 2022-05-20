@@ -45,6 +45,30 @@
         });
     });
 </script>
+<script>
+    window.setTimeout(function() {
+        $(".callout").fadeTo(500, 0).slideUp(500, function() {
+            $(this).remove();
+        });
+    }, 3000)
+</script>
+<script>
+    console.log = function() {}
+    $("#size").on('change', function() {
+
+        $(".harga").html($(this).find(':selected').attr('data-harga'));
+        $(".harga").val($(this).find(':selected').attr('data-harga'));
+
+        $(".price").html($(this).find(':selected').attr('data-price'));
+        $(".price").val($(this).find(':selected').attr('data-price'));
+
+        $(".stok").html($(this).find(':selected').attr('data-stok'));
+        $(".stok").val($(this).find(':selected').attr('data-stok'));
+
+        $(".size").html($(this).find(':selected').attr('data-size'));
+        $(".size").val($(this).find(':selected').attr('data-size'));
+    });
+</script>
 </body>
 
 </html>
