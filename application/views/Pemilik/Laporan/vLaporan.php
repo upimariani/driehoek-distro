@@ -27,7 +27,7 @@
                         </div>
                         <div class="card-body">
                             <?php
-                            echo form_open('Pemilik/Laporan/lap_harian') ?>
+                            echo form_open('Pemilik/cLaporan/lap_harian') ?>
                             <div class="row">
                                 <div class="col-sm-4">
                                     <div class="form-group">
@@ -91,7 +91,7 @@
                         </div>
                         <div class="card-body">
                             <?php
-                            echo form_open('Pemilik/Laporan/lap_bulanan') ?>
+                            echo form_open('Pemilik/cLaporan/lap_bulanan') ?>
                             <div class="row">
                                 <div class="col-sm-6">
                                     <div class="form-group">
@@ -141,7 +141,7 @@
                         </div>
                         <div class="card-body">
                             <?php
-                            echo form_open('Pemilik/Laporan/lap_tahunan') ?>
+                            echo form_open('Pemilik/cLaporan/lap_tahunan') ?>
                             <div class="row">
                                 <div class="col-sm-12">
                                     <div class="form-group">

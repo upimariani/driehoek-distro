@@ -99,15 +99,15 @@ class cKatalog extends CI_Controller
         $this->db->insert('order', $data);
 
         //mengurangi jumlah stok
-        // $kstok = 0;
-        // foreach ($this->cart->contents() as $key => $value) {
-        //     $id = $value['id'];
-        //     $kstok = $value['stok'] - $value['qty'];
-        //     $data = array(
-        //         'stok' => $kstok
-        //     );
-        //     $this->mKatalog->stok($id, $data);
-        // }
+        $kstok = 0;
+        foreach ($this->cart->contents() as $key => $value) {
+            $id = $value['id'];
+            $kstok = $value['stok'] - $value['qty'];
+            $data = array(
+                'stok' => $kstok
+            );
+            $this->mKatalog->stok($id, $data);
+        }
 
 
         //menyimpan pesanan ke detail transaksi
@@ -124,6 +124,7 @@ class cKatalog extends CI_Controller
         $this->session->set_flashdata('success', 'Pesanan Anda Berhasil Dikirim!');
         redirect('Sales/cKatalog');
     }
+    
 }
 
 /* End of file cKatalog.php */

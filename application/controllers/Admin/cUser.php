@@ -16,10 +16,10 @@ class cUser extends CI_Controller
         $data = array(
             'user' => $this->mUser->select()
         );
-        $this->load->view('Pemilik/Layout/head');
-        $this->load->view('Pemilik/Layout/sidebar');
-        $this->load->view('Pemilik/User/vUser', $data);
-        $this->load->view('Pemilik/Layout/footer');
+        $this->load->view('AdminGudang/Layout/head');
+        $this->load->view('AdminGudang/Layout/sidebar');
+        $this->load->view('AdminGudang/User/vUser', $data);
+        $this->load->view('AdminGudang/Layout/footer');
     }
     public function create()
     {
@@ -32,10 +32,10 @@ class cUser extends CI_Controller
 
 
         if ($this->form_validation->run() == FALSE) {
-            $this->load->view('Pemilik/Layout/head');
-            $this->load->view('Pemilik/Layout/sidebar');
-            $this->load->view('Pemilik/User/vCreateUser');
-            $this->load->view('Pemilik/Layout/footer');
+            $this->load->view('AdminGudang/Layout/head');
+            $this->load->view('AdminGudang/Layout/sidebar');
+            $this->load->view('AdminGudang/User/vCreateUser');
+            $this->load->view('AdminGudang/Layout/footer');
         } else {
             $data = array(
                 'nama_user' => $this->input->post('nama'),
@@ -47,7 +47,7 @@ class cUser extends CI_Controller
             );
             $this->mUser->insert($data);
             $this->session->set_flashdata('success', 'Data User Berhasil Disimpan!');
-            redirect('Pemilik/cUser');
+            redirect('Admin/cUser');
         }
     }
     public function edit($id)
@@ -63,10 +63,10 @@ class cUser extends CI_Controller
             $data = array(
                 'user' => $this->mUser->edit($id)
             );
-            $this->load->view('Pemilik/Layout/head');
-            $this->load->view('Pemilik/Layout/sidebar');
-            $this->load->view('Pemilik/User/vUpdateUser', $data);
-            $this->load->view('Pemilik/Layout/footer');
+            $this->load->view('AdminGudang/Layout/head');
+            $this->load->view('AdminGudang/Layout/sidebar');
+            $this->load->view('AdminGudang/User/vUpdateUser', $data);
+            $this->load->view('AdminGudang/Layout/footer');
         } else {
             $data = array(
                 'nama_user' => $this->input->post('nama'),
@@ -78,14 +78,14 @@ class cUser extends CI_Controller
             );
             $this->mUser->update($id, $data);
             $this->session->set_flashdata('success', 'Data User Berhasil Diperbaharui!');
-            redirect('Pemilik/cUser');
+            redirect('Admin/cUser');
         }
     }
     public function delete($id)
     {
         $this->mUser->delete($id);
         $this->session->set_flashdata('success', 'Data User Berhasil Dihapus!');
-        redirect('Pemilik/cUser');
+        redirect('Admin/cUser');
     }
 }
 

@@ -29,6 +29,43 @@
 <script src="<?= base_url('asset/AdminLTE/') ?>dist/js/demo.js"></script>
 <!-- Summernote -->
 <script src="<?= base_url('asset/AdminLTE/') ?>plugins/summernote/summernote-bs4.min.js"></script>
+<script type="text/javascript">
+    $(document).ready(function() {
+        $('#produk').change(function() {
+            var id = $(this).val();
+            $.ajax({
+                url: "<?php echo site_url('Admin/cProdukMasuk/size'); ?>",
+                method: "POST",
+                data: {
+                    id: id
+                },
+                async: true,
+                dataType: 'json',
+                success: function(data) {
+
+                    var html = '';
+                    var i;
+                    html = '<option value="">---Pilih Size Produk---</option>';
+                    for (i = 0; i < data.length; i++) {
+                        html += '<option data-stok=' + data[i].stok + ' value=' + data[i].id_size + ' >' + data[i].nama_size + '</option>';
+                    }
+                    $('#size').html(html);
+                }
+            });
+            return false;
+        });
+
+    });
+</script>
+<script>
+    console.log = function() {}
+    $("#size").on('change', function() {
+
+        $(".stok").html($(this).find(':selected').attr('data-stok'));
+        $(".stok").val($(this).find(':selected').attr('data-stok'));
+
+    });
+</script>
 <script>
     $(function() {
         // Summernote

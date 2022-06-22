@@ -6,7 +6,7 @@
             <div class="row mb-2">
                 <div class="col-sm-6">
                     <h1>Produk Masuk</h1>
-                    <a href="">Create Produk Masuk</a>
+                    <a href="<?= base_url("Admin/cProdukMasuk/create") ?>">Create Produk Masuk</a>
                 </div>
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
@@ -40,13 +40,26 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                    </tr>
+                                    <?php
+                                    $no = 1;
+                                    foreach ($produk_masuk as $key => $value) {
+                                    ?>
+                                        <tr>
+                                            <td><?= $no++ ?></td>
+                                            <td><?= $value->nama_produk ?> | Size: <?= $value->nama_size ?></td>
+                                            <td><?= $value->tgl_masuk ?></td>
+                                            <td><?= $value->qty_masuk ?> pcs</td>
+                                            <td class="text-center"><a href="<?= base_url('Admin/cProdukMasuk/edit/' . $value->id_produk_masuk) ?>" class="btn btn-app btn-sm">
+                                                    <i class="fas fa-edit"></i> Edit
+                                                </a>
+                                                <a href="<?= base_url('Admin/cProdukMasuk/delete/' . $value->id_produk_masuk) ?>" class="btn btn-app btn-sm">
+                                                    <i class="fas fa-trash"></i> Hapus
+                                                </a>
+                                            </td>
+                                        </tr>
+                                    <?php
+                                    }
+                                    ?>
                                 </tbody>
                                 <tfoot>
                                     <tr>

@@ -5,7 +5,7 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1>Order</h1>
+                    <h1>Transaksi</h1>
                 </div>
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
@@ -31,12 +31,12 @@
                             <table id="example1" class="table table-bordered table-striped">
                                 <thead>
                                     <tr>
-                                        <th>No.</th>
-                                        <th>Id Order</th>
-                                        <th>Atas Nama</th>
-                                        <th>Tanggal Order</th>
-                                        <th>Total Bayar</th>
-                                        <th>Detail Order</th>
+                                        <th class="text-center">No.</th>
+                                        <th class="text-center">Id Order</th>
+                                        <th class="text-center">Atas Nama</th>
+                                        <th class="text-center">Tanggal Order</th>
+                                        <th class="text-center">Total Bayar</th>
+                                        <th class="text-center">Detail Order</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -48,8 +48,8 @@
                                             <td><?= $no++ ?></td>
                                             <td><?= $value->id_order ?></td>
                                             <td><?= $value->atas_nama ?></td>
-                                            <td><?= $value->tgl_order ?></td>
-                                            <td><?= $value->total_bayar ?></td>
+                                            <td class="text-center"><span class="badge badge-warning"><?= $value->tgl_order ?></span></td>
+                                            <td class="text-center">Rp. <?= number_format($value->total_bayar)  ?></td>
                                             <td></td>
                                         </tr>
                                     <?php
@@ -58,12 +58,12 @@
                                 </tbody>
                                 <tfoot>
                                     <tr>
-                                        <th>No.</th>
-                                        <th>Id Order</th>
-                                        <th>Atas Nama</th>
-                                        <th>Tanggal Order</th>
-                                        <th>Total Bayar</th>
-                                        <th>Detail Order</th>
+                                        <th class="text-center">No.</th>
+                                        <th class="text-center">Id Order</th>
+                                        <th class="text-center">Atas Nama</th>
+                                        <th class="text-center">Tanggal Order</th>
+                                        <th class="text-center">Total Bayar</th>
+                                        <th class="text-center">Detail Order</th>
                                     </tr>
                                 </tfoot>
                             </table>

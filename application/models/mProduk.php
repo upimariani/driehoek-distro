@@ -47,6 +47,16 @@ class mProduk extends CI_Model
     {
         $this->db->insert('size', $data);
     }
+    public function update_size($id, $data)
+    {
+        $this->db->where('id_size', $id);
+        $this->db->update('size', $data);
+    }
+    public function delete_size($id)
+    {
+        $this->db->where('id_size', $id);
+        $this->db->delete('size');
+    }
 }
 
 /* End of file mProduk.php */

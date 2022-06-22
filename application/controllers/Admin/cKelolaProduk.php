@@ -151,6 +151,24 @@ class cKelolaProduk extends CI_Controller
         $this->session->set_flashdata('success', 'Data Size Berhasil Ditambahkan!');
         redirect('Admin/cKelolaProduk/size/' . $data['id_produk']);
     }
+    public function update_size($id)
+    {
+        $id_produk = $this->input->post('produk');
+        $data = array(
+            'nama_size' => $this->input->post('size'),
+            'harga' => $this->input->post('harga'),
+            'stok' => $this->input->post('stok')
+        );
+        $this->mProduk->update_size($id, $data);
+        $this->session->set_flashdata('success', 'Data Size Berhasil Diperbaharui!');
+        redirect('Admin/cKelolaProduk/size/' . $id_produk);
+    }
+    public function delete_size($id, $id_produk)
+    {
+        $this->mProduk->delete_size($id);
+        $this->session->set_flashdata('success', 'Data Size Berhasil Diperbaharui!');
+        redirect('Admin/cKelolaProduk/size/' . $id_produk);
+    }
 }
 
 /* End of file cKelolaProduk.php */

@@ -18,6 +18,13 @@ class mKatalog extends CI_Model
         $data['size'] = $this->db->query("SELECT * FROM size JOIN produk ON size.id_produk = produk.id_produk WHERE produk.id_produk='" . $id . "'")->result();
         return $data;
     }
+
+    //mengurangi jumlah stok
+    public function stok($id, $data)
+    {
+        $this->db->where('id_size', $id);
+        $this->db->update('size', $data);
+    }
 }
 
 /* End of file mkatalog.php */

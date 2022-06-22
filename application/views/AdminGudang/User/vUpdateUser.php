@@ -27,7 +27,7 @@
                         </div>
                         <!-- /.card-header -->
                         <!-- form start -->
-                        <form action="<?= base_url('Pemilik/cUser/edit/' . $user->id_user) ?>" method="POST" class="form-horizontal">
+                        <form action="<?= base_url('Admin/cUser/edit/' . $user->id_user) ?>" method="POST" class="form-horizontal">
                             <div class="card-body">
                                 <div class="row">
                                     <div class="col-lg-6">

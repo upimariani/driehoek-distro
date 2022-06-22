@@ -11,6 +11,15 @@ class mTransaksi extends CI_Model
         $this->db->where('order.id_user', $this->session->userdata('id'));
         return $this->db->get()->result();
     }
+
+    //data transaksi admin
+    public function transaksi_all()
+    {
+        $this->db->select('*');
+        $this->db->from('order');
+        $this->db->join('user', 'order.id_user = user.id_user', 'left');
+        return $this->db->get()->result();
+    }
 }
 
 /* End of file mTransaksi.php */

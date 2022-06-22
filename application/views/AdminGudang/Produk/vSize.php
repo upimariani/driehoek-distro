@@ -64,10 +64,11 @@
                                             <td class="text-center"><?= $value->nama_size ?></td>
                                             <td class="text-center"><?= $value->harga ?></td>
                                             <td class="text-center"><?= $value->stok ?></td>
-                                            <td class="text-center"><a href="<?= base_url('Admin/cKelolaProduk/edit_size/' . $value->id_size) ?>" class="btn btn-app">
+                                            <td class="text-center">
+                                                <button type="button" data-toggle="modal" data-target="#edit<?= $value->id_size ?>" class="btn btn-app">
                                                     <i class="fas fa-edit"></i> Edit
-                                                </a>
-                                                <a href="<?= base_url('Admin/cKelolaProduk/delete_size/' . $value->id_size) ?>" class="btn btn-app">
+                                                </button>
+                                                <a href="<?= base_url('Admin/cKelolaProduk/delete_size/' . $value->id_size . '/' . $value->id_produk) ?>" class="btn btn-app">
                                                     <i class="fas fa-trash"></i> Hapus
                                                 </a>
                                             </td>
@@ -139,3 +140,47 @@
     </div>
     <!-- /.modal -->
 </form>
+
+<?php
+foreach ($size as $key => $value) {
+?>
+    <form action="<?= base_url('Admin/cKelolaProduk/update_size/' . $value->id_size) ?>" method="POST">
+        <div class="modal fade" id="edit<?= $value->id_size ?>">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title">Update Size</h4>
+
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">Nama Size</label>
+                            <input type="hidden" name="produk" value="<?= $value->id_produk ?>">
+                            <input type="text" name="size" value="<?= $value->nama_size ?>" class="form-control" id="exampleInputEmail1" placeholder="Enter Size" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">Harga Produk</label>
+                            <input type="number" name="harga" value="<?= $value->harga ?>" class="form-control" id="exampleInputEmail1" placeholder="Enter Harga" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">Stok</label>
+                            <input type="number" name="stok" value="<?= $value->stok ?>" class="form-control" id="exampleInputEmail1" placeholder="Enter Stok" required>
+                        </div>
+                    </div>
+                    <div class="modal-footer justify-content-between">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-primary">Save changes</button>
+                    </div>
+                </div>
+                <!-- /.modal-content -->
+            </div>
+            <!-- /.modal-dialog -->
+        </div>
+        <!-- /.modal -->
+    </form>
+<?php
+}
+?>
