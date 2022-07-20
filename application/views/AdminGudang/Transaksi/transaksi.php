@@ -44,12 +44,9 @@
                                     <tr>
                                         <th class="text-center">No.</th>
                                         <th class="text-center">Id Order</th>
-                                        <th class="text-center">Tanggal Transaksi</th>
                                         <th class="text-center">Nama Sales</th>
                                         <th class="text-center">Atas Nama</th>
-                                        <th class="text-center">Alamat</th>
-                                        <th class="text-center">No Telepon</th>
-                                        <th class="text-center">Total Bayar</th>
+                                        <th class="text-center">Detail Pesanan</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -60,12 +57,9 @@
                                         <tr>
                                             <td><?= $no++ ?>.</td>
                                             <td><?= $value->id_order ?></td>
-                                            <td><?= $value->time ?></td>
                                             <td><?= $value->nama_user ?></td>
                                             <td><?= $value->atas_nama ?></td>
-                                            <td><?= $value->alamat ?></td>
-                                            <td><?= $value->no_hp ?></td>
-                                            <td>Rp. <?= number_format($value->total_bayar)  ?></td>
+                                            <td class="text-center"><a href="<?= base_url('Admin/cTransaksi/detail_pesanan/' . $value->id_order) ?>">Detail</a></td>
                                         </tr>
                                     <?php
                                     }
@@ -75,12 +69,9 @@
                                     <tr>
                                         <th class="text-center">No.</th>
                                         <th class="text-center">Id Order</th>
-                                        <th class="text-center">Tanggal Transaksi</th>
                                         <th class="text-center">Nama Sales</th>
                                         <th class="text-center">Atas Nama</th>
-                                        <th class="text-center">Alamat</th>
-                                        <th class="text-center">No Telepon</th>
-                                        <th class="text-center">Total Bayar</th>
+                                        <th class="text-center">Detail Pesanan</th>
                                     </tr>
                                 </tfoot>
                             </table>

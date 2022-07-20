@@ -20,6 +20,16 @@ class cTransaksi extends CI_Controller
         $this->load->view('AdminGudang/Transaksi/transaksi', $data);
         $this->load->view('AdminGudang/Layout/footer');
     }
+    public function detail_pesanan($id)
+    {
+        $data = array(
+            'detail' => $this->mTransaksi->detail_pesanan($id)
+        );
+        $this->load->view('AdminGudang/Layout/head');
+        $this->load->view('AdminGudang/Layout/sidebar');
+        $this->load->view('AdminGudang/Transaksi/detail_pesanan', $data);
+        $this->load->view('AdminGudang/Layout/footer');
+    }
 }
 
 /* End of file cTransaksi.php */

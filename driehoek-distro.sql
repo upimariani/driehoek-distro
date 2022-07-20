@@ -1,14 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 4.9.0.1
+-- version 5.1.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 21 Bulan Mei 2022 pada 01.02
--- Versi server: 10.4.6-MariaDB
--- Versi PHP: 7.3.9
+-- Generation Time: Jun 22, 2022 at 12:30 PM
+-- Server version: 10.4.20-MariaDB
+-- PHP Version: 7.4.22
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -25,7 +24,7 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `detail_order`
+-- Table structure for table `detail_order`
 --
 
 CREATE TABLE `detail_order` (
@@ -36,18 +35,21 @@ CREATE TABLE `detail_order` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `detail_order`
+-- Dumping data for table `detail_order`
 --
 
 INSERT INTO `detail_order` (`id_detail`, `id_size`, `id_order`, `qty`) VALUES
 (1, 2, '20220520KD3BERBE', 3),
 (2, 5, '20220520KD3BERBE', 1),
-(3, 3, '20220520OYHKVAE1', 5);
+(3, 3, '20220520OYHKVAE1', 5),
+(4, 1, '20220604Y6DFOTE2', 5),
+(5, 4, '20220604N7LQCUEV', 5),
+(6, 6, '20220604N7LQCUEV', 3);
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `kategori`
+-- Table structure for table `kategori`
 --
 
 CREATE TABLE `kategori` (
@@ -56,7 +58,7 @@ CREATE TABLE `kategori` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `kategori`
+-- Dumping data for table `kategori`
 --
 
 INSERT INTO `kategori` (`id_kategori`, `nama_kategori`) VALUES
@@ -67,7 +69,7 @@ INSERT INTO `kategori` (`id_kategori`, `nama_kategori`) VALUES
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `order`
+-- Table structure for table `order`
 --
 
 CREATE TABLE `order` (
@@ -82,17 +84,19 @@ CREATE TABLE `order` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `order`
+-- Dumping data for table `order`
 --
 
 INSERT INTO `order` (`id_order`, `id_user`, `tgl_order`, `time`, `atas_nama`, `alamat`, `no_hp`, `total_bayar`) VALUES
 ('20220520KD3BERBE', 3, '2022-05-20', '2022-05-20 13:29:34', 'upi', 'Kuningan', '0875698745633', '10732'),
-('20220520OYHKVAE1', 3, '2022-05-20', '2022-05-20 13:37:23', 'dahlia', 'Ciawigebang, Kuningan', '085156727368', '50000');
+('20220520OYHKVAE1', 3, '2022-05-20', '2022-05-20 13:37:23', 'dahlia', 'Ciawigebang, Kuningan', '085156727368', '50000'),
+('20220604N7LQCUEV', 7, '2022-06-04', '2022-06-03 22:58:17', 'Siti', 'Cipicung Rt.02/03', '089876776545', '136000'),
+('20220604Y6DFOTE2', 3, '2022-06-04', '2022-06-03 22:52:59', 'Dahlan', 'Ciawigebang, Kuningan', '0875698745633', '800000');
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `produk`
+-- Table structure for table `produk`
 --
 
 CREATE TABLE `produk` (
@@ -104,7 +108,7 @@ CREATE TABLE `produk` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `produk`
+-- Dumping data for table `produk`
 --
 
 INSERT INTO `produk` (`id_produk`, `id_kategori`, `nama_produk`, `deskripsi`, `gambar`) VALUES
@@ -115,7 +119,7 @@ INSERT INTO `produk` (`id_produk`, `id_kategori`, `nama_produk`, `deskripsi`, `g
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `produk_masuk`
+-- Table structure for table `produk_masuk`
 --
 
 CREATE TABLE `produk_masuk` (
@@ -125,10 +129,18 @@ CREATE TABLE `produk_masuk` (
   `qty_masuk` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data for table `produk_masuk`
+--
+
+INSERT INTO `produk_masuk` (`id_produk_masuk`, `id_size`, `tgl_masuk`, `qty_masuk`) VALUES
+(1, 3, '2022-06-18', 8),
+(2, 1, '2022-06-15', 3);
+
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `size`
+-- Table structure for table `size`
 --
 
 CREATE TABLE `size` (
@@ -140,21 +152,21 @@ CREATE TABLE `size` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `size`
+-- Dumping data for table `size`
 --
 
 INSERT INTO `size` (`id_size`, `id_produk`, `nama_size`, `harga`, `stok`) VALUES
-(1, 1, 'coba', '12345', 232),
-(2, 1, 'zds', '244', 1231),
+(1, 1, 'L', '160000', 230),
+(2, 1, 'XL', '180000', 1231),
 (3, 3, 'L', '10000', 100),
-(4, 3, 'S', '17000', 91),
+(4, 3, 'S', '17000', 86),
 (5, 4, 'S', '10000', 91),
-(6, 4, 'XL', '17000', 91);
+(6, 4, 'XL', '17000', 88);
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `user`
+-- Table structure for table `user`
 --
 
 CREATE TABLE `user` (
@@ -168,99 +180,100 @@ CREATE TABLE `user` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `user`
+-- Dumping data for table `user`
 --
 
 INSERT INTO `user` (`id_user`, `nama_user`, `alamat`, `no_hp`, `username`, `password`, `level_user`) VALUES
 (1, 'pemilik', 'Kuningan, Jawa Barat', '0897654345676', 'pemilik', 'pemilik', 1),
 (2, 'admin', 'Ciawigebang, Jawa Barat', '0898765434567', 'admin', 'admin', 2),
-(3, 'sales1', 'Cigugur, Kuningan', '087652615263', 'sales1', 'sales1', 3);
+(3, 'sales1', 'Cigugur, Kuningan', '087652615263', 'sales1', 'sales1', 3),
+(7, 'Wawan', 'Cipicung, Kuningan', '089867564763', 'sales2', 'sales2', 3);
 
 --
 -- Indexes for dumped tables
 --
 
 --
--- Indeks untuk tabel `detail_order`
+-- Indexes for table `detail_order`
 --
 ALTER TABLE `detail_order`
   ADD PRIMARY KEY (`id_detail`);
 
 --
--- Indeks untuk tabel `kategori`
+-- Indexes for table `kategori`
 --
 ALTER TABLE `kategori`
   ADD PRIMARY KEY (`id_kategori`);
 
 --
--- Indeks untuk tabel `order`
+-- Indexes for table `order`
 --
 ALTER TABLE `order`
   ADD PRIMARY KEY (`id_order`);
 
 --
--- Indeks untuk tabel `produk`
+-- Indexes for table `produk`
 --
 ALTER TABLE `produk`
   ADD PRIMARY KEY (`id_produk`);
 
 --
--- Indeks untuk tabel `produk_masuk`
+-- Indexes for table `produk_masuk`
 --
 ALTER TABLE `produk_masuk`
   ADD PRIMARY KEY (`id_produk_masuk`);
 
 --
--- Indeks untuk tabel `size`
+-- Indexes for table `size`
 --
 ALTER TABLE `size`
   ADD PRIMARY KEY (`id_size`);
 
 --
--- Indeks untuk tabel `user`
+-- Indexes for table `user`
 --
 ALTER TABLE `user`
   ADD PRIMARY KEY (`id_user`);
 
 --
--- AUTO_INCREMENT untuk tabel yang dibuang
+-- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT untuk tabel `detail_order`
+-- AUTO_INCREMENT for table `detail_order`
 --
 ALTER TABLE `detail_order`
-  MODIFY `id_detail` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id_detail` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
--- AUTO_INCREMENT untuk tabel `kategori`
+-- AUTO_INCREMENT for table `kategori`
 --
 ALTER TABLE `kategori`
-  MODIFY `id_kategori` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id_kategori` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
--- AUTO_INCREMENT untuk tabel `produk`
+-- AUTO_INCREMENT for table `produk`
 --
 ALTER TABLE `produk`
   MODIFY `id_produk` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
--- AUTO_INCREMENT untuk tabel `produk_masuk`
+-- AUTO_INCREMENT for table `produk_masuk`
 --
 ALTER TABLE `produk_masuk`
-  MODIFY `id_produk_masuk` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_produk_masuk` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
--- AUTO_INCREMENT untuk tabel `size`
+-- AUTO_INCREMENT for table `size`
 --
 ALTER TABLE `size`
-  MODIFY `id_size` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id_size` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
--- AUTO_INCREMENT untuk tabel `user`
+-- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

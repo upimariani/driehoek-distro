@@ -50,7 +50,7 @@
                                             <td><?= $value->atas_nama ?></td>
                                             <td class="text-center"><span class="badge badge-warning"><?= $value->tgl_order ?></span></td>
                                             <td class="text-center">Rp. <?= number_format($value->total_bayar)  ?></td>
-                                            <td></td>
+                                            <td class="text-center"><a href="<?= base_url('Sales/cTransaksi/detail_pesanan/' . $value->id_order) ?>">Detail</a></td>
                                         </tr>
                                     <?php
                                     }
