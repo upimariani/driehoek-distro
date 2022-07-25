@@ -50,9 +50,9 @@
                                 <?php
                                 foreach ($detail['size'] as $key => $value) {
                                 ?>
-                                    <option data-size="<?= $value->nama_size ?>" data-price="<?= $value->harga ?>" data-stok="<?= $value->stok ?>" data-harga="<i class='fas fa-tag'></i> Rp.<?= number_format($value->harga)  ?>" value="<?= $value->id_size ?>" <?php if ($detail['menu']->nama_size == $value->nama_size) {
-                                                                                                                                                                                                                                                                        echo 'selected';
-                                                                                                                                                                                                                                                                    } ?>><?= $value->nama_size ?></option>
+                                    <option data-size="<?= $value->nama_size ?>" data-price="<?= $value->harga_jual ?>" data-stok="<?= $value->stok ?>" data-harga="<i class='fas fa-tag'></i> Rp.<?= number_format($value->harga_jual)  ?>" value="<?= $value->id_size ?>" <?php if ($detail['menu']->nama_size == $value->nama_size) {
+                                                                                                                                                                                                                                                                                echo 'selected';
+                                                                                                                                                                                                                                                                            } ?>><?= $value->nama_size ?></option>
                                 <?php
                                 }
                                 ?>
@@ -61,11 +61,11 @@
                             <input type="number" name="qty" class="form-control" min="1" value="1">
                             <div class="bg-gray py-2 px-3 mt-4">
                                 <h2 class="mb-0 harga">
-                                    <i class="fas fa-tag"></i> Rp. <?= number_format($detail['menu']->harga, 0) ?>
+                                    <i class="fas fa-tag"></i> Rp. <?= number_format($detail['menu']->harga_jual, 0) ?>
                                 </h2>
                             </div>
                             <input type="hidden" name="name" value="<?= $detail['menu']->nama_produk ?>">
-                            <input type="hidden" name="price" class="price" value="<?= $detail['menu']->harga ?>">
+                            <input type="hidden" name="price" class="price" value="<?= $detail['menu']->harga_jual ?>">
                             <input type="hidden" name="stok" class="stok" value="<?= $detail['menu']->stok ?>">
                             <input type="hidden" name="id_produk" value="<?= $id ?>">
                             <input type="hidden" name="size" class="size" value="<?= $detail['menu']->nama_size ?>">

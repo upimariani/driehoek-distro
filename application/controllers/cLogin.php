@@ -33,6 +33,8 @@ class cLogin extends CI_Controller
                     redirect('Admin/cKelolaProduk');
                 } else if ($level == '3') {
                     redirect('Sales/cKatalog');
+                } else if ($level == '4') {
+                    redirect('BagKeuangan/HargaProduk');
                 }
             } else {
                 $this->session->set_flashdata('error', 'Username dan Password Salah!');

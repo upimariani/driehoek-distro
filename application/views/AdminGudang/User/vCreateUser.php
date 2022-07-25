@@ -96,6 +96,9 @@
                                                     <option value="3" <?php if (set_value('user') == '3') {
                                                                             echo 'selected';
                                                                         } ?>>Sales</option>
+                                                    <option value="4" <?php if (set_value('user') == '4') {
+                                                                            echo 'selected';
+                                                                        } ?>>Bag Keuangan</option>
                                                 </select>
                                                 <?= form_error('user', '<small class="text-danger">', '</small>') ?>
                                             </div>

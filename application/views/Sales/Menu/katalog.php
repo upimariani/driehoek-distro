@@ -55,7 +55,7 @@
                                         <div class="col-7">
                                             <h2 class="lead"><b><?= $value->nama_produk ?></b></h2>
                                             <ul class="ml-4 mb-0 fa-ul text-muted">
-                                                <li><span class="fa-li"><i class="fas fa-tag"></i></span>Harga: Rp. <?= number_format($value->harga) ?></li>
+                                                <li><span class="fa-li"><i class="fas fa-tag"></i></span>Harga: Rp. <?= number_format($value->harga_jual) ?></li>
                                                 <li><span class="fa-li"><i class="fas fa-ruler-combined"></i></span> Size: <?= $value->nama_size ?></li>
                                             </ul>
                                         </div>

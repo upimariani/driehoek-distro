@@ -74,6 +74,8 @@
                                                     echo '<span class="badge badge-success">Admin Gudang</span>';
                                                 } else if ($value->level_user == '3') {
                                                     echo '<span class="badge badge-info">Sales</span>';
+                                                } else if ($value->level_user == '4') {
+                                                    echo '<span class="badge badge-danger">Bag Keuangan</span>';
                                                 }
                                                 ?>
                                             </td>

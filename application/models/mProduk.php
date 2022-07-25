@@ -57,6 +57,24 @@ class mProduk extends CI_Model
         $this->db->where('id_size', $id);
         $this->db->delete('size');
     }
+
+    //bagian keuangan
+    public function produk_jual()
+    {
+        $this->db->select('*');
+        $this->db->from('produk');
+        $this->db->join('size', 'produk.id_produk = size.id_produk', 'left');
+        $this->db->where('harga_jual=0');
+        return $this->db->get()->result();
+    }
+    public function select_produk_jual()
+    {
+        $this->db->select('*');
+        $this->db->from('produk');
+        $this->db->join('size', 'produk.id_produk = size.id_produk', 'left');
+        $this->db->where('harga_jual != 0');
+        return $this->db->get()->result();
+    }
 }
 
 /* End of file mProduk.php */
