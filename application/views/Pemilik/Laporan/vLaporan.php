@@ -4,12 +4,12 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1>General Form</h1>
+                    <h1>Laporan Penjualan</h1>
                 </div>
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
                         <li class="breadcrumb-item"><a href="#">Home</a></li>
-                        <li class="breadcrumb-item active">General Form</li>
+                        <li class="breadcrumb-item active">Laporan Penjualan</li>
                     </ol>
                 </div>
             </div>
@@ -29,6 +29,17 @@
                             <?php
                             echo form_open('Pemilik/cLaporan/lap_harian') ?>
                             <div class="row">
+
+                                <div class="col-lg-12">
+                                    <div class="form-group">
+                                        <select name="laporan" class="form-control">
+                                            <option value="1">Laporan Penjualan</option>
+                                            <option value="2">Laporan Transaksi Sales</option>
+                                            <option value="3">Laporan Transaksi Perkategori</option>
+                                        </select>
+                                    </div>
+                                </div>
+
                                 <div class="col-sm-4">
                                     <div class="form-group">
                                         <label>Tanggal</label>
@@ -93,6 +104,15 @@
                             <?php
                             echo form_open('Pemilik/cLaporan/lap_bulanan') ?>
                             <div class="row">
+                                <div class="col-lg-12">
+                                    <div class="form-group">
+                                        <select name="laporan" class="form-control">
+                                            <option value="1">Laporan Penjualan</option>
+                                            <option value="2">Laporan Transaksi Sales</option>
+                                            <option value="3">Laporan Transaksi Perkategori</option>
+                                        </select>
+                                    </div>
+                                </div>
                                 <div class="col-sm-6">
                                     <div class="form-group">
                                         <label>Bulan</label>
@@ -143,6 +163,15 @@
                             <?php
                             echo form_open('Pemilik/cLaporan/lap_tahunan') ?>
                             <div class="row">
+                                <div class="col-lg-12">
+                                    <div class="form-group">
+                                        <select name="laporan" class="form-control">
+                                            <option value="1">Laporan Penjualan</option>
+                                            <option value="2">Laporan Transaksi Sales</option>
+                                            <option value="3">Laporan Transaksi Perkategori</option>
+                                        </select>
+                                    </div>
+                                </div>
                                 <div class="col-sm-12">
                                     <div class="form-group">
                                         <label>Tahun</label>

@@ -19,4 +19,6 @@
     <link rel="stylesheet" href="<?= base_url('asset/AdminLTE/') ?>dist/css/adminlte.min.css">
     <!-- Google Font: Source Sans Pro -->
     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+    <script src="<?= base_url() ?>asset/AdminLTE/chart/dist/Chart.min.js"></script>
+    <script src="<?= base_url() ?>asset/AdminLTE/chart/samples/utils.js"></script>
 </head>

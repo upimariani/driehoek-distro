@@ -43,6 +43,16 @@
                         <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
                         <li class="nav-item">
+                            <a href="<?= base_url('Pemilik/cGrafik') ?>" class="nav-link <?php if ($this->uri->segment(1) == 'Pemilik' && $this->uri->segment(2) == 'cGrafik') {
+                                                                                                echo 'active';
+                                                                                            }  ?>">
+                                <i class="nav-icon fas fa-archive"></i>
+                                <p>
+                                    Grafik Transaksi
+                                </p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
                             <a href="<?= base_url('Pemilik/cLaporan') ?>" class="nav-link <?php if ($this->uri->segment(1) == 'Pemilik' && $this->uri->segment(2) == 'cLaporan') {
                                                                                                 echo 'active';
                                                                                             }  ?>">
@@ -52,6 +62,26 @@
                                 </p>
                             </a>
                         </li>
+                        <!-- <li class="nav-item">
+                            <a href="<?= base_url('Pemilik/cLaporanSales') ?>" class="nav-link <?php if ($this->uri->segment(1) == 'Pemilik' && $this->uri->segment(2) == 'cLaporanSales') {
+                                                                                                    echo 'active';
+                                                                                                }  ?>">
+                                <i class="nav-icon fas fa-archive"></i>
+                                <p>
+                                    Laporan Transaksi Sales
+                                </p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="<?= base_url('Pemilik/cLaporanKategori') ?>" class="nav-link <?php if ($this->uri->segment(1) == 'Pemilik' && $this->uri->segment(2) == 'cLaporanKategori') {
+                                                                                                        echo 'active';
+                                                                                                    }  ?>">
+                                <i class="nav-icon fas fa-archive"></i>
+                                <p>
+                                    Laporan Transaksi Kategori
+                                </p>
+                            </a>
+                        </li> -->
 
                         <li class="nav-item">
                             <a href="<?= base_url('cLogin/logout') ?>" class="nav-link">
